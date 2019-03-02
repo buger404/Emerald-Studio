@@ -170,14 +170,10 @@ Public Sub UpdateUS(ByVal Index As Integer)
     w = us(Index).Width: h = us(Index).Height
     
     us(Index).Visible = False
-    DoEvents
-    Sleep 1000
-    DoEvents
     PrintWindow Me.hwnd, tempBox.hdc, vbSrcCopy
     tempBox.Refresh
     BitBlt us(Index).hdc, 0, 0, us(Index).Width, us(Index).Height, tempBox.hdc, us(Index).Left, us(Index).top, vbSrcCopy
     us(Index).Refresh
-    Exit Sub
     
     GdipCreateFromHDC us(Index).hdc, g
     GdipSetSmoothingMode g, SmoothingModeAntiAlias

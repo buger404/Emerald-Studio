@@ -1409,31 +1409,31 @@ Private Sub colorpad_MouseMove(Index As Integer, Button As Integer, Shift As Int
     If Button = 1 Then
         Dim c(3) As Byte
         Select Case Index
-            Case 0  '大调色板
-                If X < 0 Then X = 0
-                If X > colorpad(0).ScaleWidth - 1 Then X = colorpad(0).ScaleWidth - 1
-                If Y < 0 Then Y = 0
-                If Y > colorpad(0).ScaleHeight - 1 Then Y = colorpad(0).ScaleHeight - 1
-                CopyMemory c(0), colorpad(0).POINT(X, Y), 4
-                pad_r = c(0): pad_g = c(1): pad_b = c(2)
-                Call setCPadC
-                Call UpdatePadPP
-                colorpoint(0).Move X - 4.5, Y - 4.5
-            Case 1  '透明度
-                If X < 0 Then X = 0
-                If X > colorpad(1).ScaleWidth Then X = colorpad(1).ScaleWidth
-                pad_a = X / colorpad(1).ScaleWidth * 255
-                Call setCPadC
-                colorpoint(1).Move X - 4.5
-            Case 2  '小调色板
-                If X < 0 Then X = 0
-                If X > colorpad(2).ScaleWidth - 1 Then X = colorpad(2).ScaleWidth - 1
-                CopyMemory c(0), colorpad(2).POINT(X, 0), 4
-                pad_r = c(0): pad_g = c(1): pad_b = c(2)
-                Call setCPadC
-                Call setCPad
-                Call UpdatePadPP
-                colorpoint(2).Move X - 4.5
+        Case 0                                                                  '大调色板
+            If X < 0 Then X = 0
+            If X > colorpad(0).ScaleWidth - 1 Then X = colorpad(0).ScaleWidth - 1
+            If Y < 0 Then Y = 0
+            If Y > colorpad(0).ScaleHeight - 1 Then Y = colorpad(0).ScaleHeight - 1
+            CopyMemory c(0), colorpad(0).POINT(X, Y), 4
+            pad_r = c(0): pad_g = c(1): pad_b = c(2)
+            Call setCPadC
+            Call UpdatePadPP
+            colorpoint(0).Move X - 4.5, Y - 4.5
+        Case 1                                                                  '透明度
+            If X < 0 Then X = 0
+            If X > colorpad(1).ScaleWidth Then X = colorpad(1).ScaleWidth
+            pad_a = X / colorpad(1).ScaleWidth * 255
+            Call setCPadC
+            colorpoint(1).Move X - 4.5
+        Case 2                                                                  '小调色板
+            If X < 0 Then X = 0
+            If X > colorpad(2).ScaleWidth - 1 Then X = colorpad(2).ScaleWidth - 1
+            CopyMemory c(0), colorpad(2).POINT(X, 0), 4
+            pad_r = c(0): pad_g = c(1): pad_b = c(2)
+            Call setCPadC
+            Call setCPad
+            Call UpdatePadPP
+            colorpoint(2).Move X - 4.5
         End Select
     End If
 End Sub
@@ -1457,7 +1457,7 @@ Private Sub colortext_Change(Index As Integer)
         Call UpdatePadPP
         Exit Sub
     End If
-
+    
     If Val(colortext(Index).Content) > 255 Then colortext(Index).Content = Right(colortext(Index).Content, 2)
     If Val(colortext(Index).Content) < 0 Then colortext(Index).Content = 0
     
@@ -1504,7 +1504,7 @@ Private Sub Form_Load()
     '设计窗口初始化
     Dim test As New dsnWindow
     test.Show
-    SetParent test.hwnd, dsnpane.hwnd ': test.Move 0, 0
+    SetParent test.hwnd, dsnpane.hwnd                                           ': test.Move 0, 0
     pagelist.ListIndex = 0: nPage = 1
     
     '样式初始化
@@ -1555,10 +1555,10 @@ Public Sub setCPad()
     Dim gr As Long, br As Long, p As Long
     Dim c() As Long, best As Long
     GdipCreateFromHDC colorpad(0).hdc, gr
-
+    
     GdipCreatePath FillModeWinding, p
     GdipAddPathRectangle p, 0, 0, colorpad(0).ScaleWidth, colorpad(0).ScaleHeight
-
+    
     ReDim c(3)
     c(0) = argb(255, 255, 255, 255): c(2) = argb(255, 0, 0, 0): c(3) = argb(255, 0, 0, 0)
     '计算饱和颜色
@@ -1619,7 +1619,7 @@ End Sub
 
 Private Sub Form_Resize()
     '更新各种控件的坐标
-
+    
     On Error Resume Next
     expframe.Height = Me.ScaleHeight - TipFrame.Height - proframe.Height
     proframe.top = expframe.top + expframe.Height
@@ -1733,13 +1733,13 @@ Private Sub protext_Commit(Index As Integer)
     
     Select Case Index
         Case 0: DsnWin(nPage).win.us(i).Left = Val(protext(Index).Content)
-        Case 1: DsnWin(nPage).win.us(i).top = Val(protext(Index).Content) + DsnWin(nPage).win.background.Height
+        Case 1: DsnWin(nPage).win.us(i).top = Val(protext(Index).Content) + DsnWin(nPage).win.titleframe.Height
         Case 2: DsnWin(nPage).win.us(i).Width = Val(protext(Index).Content)
         Case 3: DsnWin(nPage).win.us(i).Height = Val(protext(Index).Content)
         Case 4: DsnWin(nPage).Obj(i).Content = protext(Index).Content
         Case 5: DsnWin(nPage).Obj(i).style = Val(protext(Index).Content)
         Case 6: DsnWin(nPage).Obj(i).size = Val(protext(Index).Content)
-        Case 7: DsnWin(nPage).Obj(i).name = protext(Index).Content: objCombo.text = IIf(protext(Index).Content = "", "[Object " & i & "]", protext(Index).Content): objCombo.List(i - 1) = objCombo.text: Exit Sub
+        Case 7: DsnWin(nPage).Obj(i).name = protext(Index).Content: objCombo.Text = IIf(protext(Index).Content = "", "[Object " & i & "]", protext(Index).Content): objCombo.List(i - 1) = objCombo.Text: Exit Sub
     End Select
     
     '和坐标大小有关

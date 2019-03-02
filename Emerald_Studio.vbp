@@ -2,7 +2,7 @@ Type=Exe
 Form=MainWindow.frm
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Form=AboutWindow.frm
-Reference=*\G{13FC9823-115E-4CB2-9A02-881895942E28}#1.646#0#Win32Api.tlb#Win32API之vb6头文件 2017-5-4修正更新 made by 棉花糖 
+Reference=*\G{13FC9823-115E-4CB2-9A02-881895942E28}#1.646#0#..\Muing2\Win32Api.tlb#Win32API之vb6头文件 2017-5-4修正更新 made by 棉花糖 
 Class=GPage; Emerald\Core\GPage.cls
 Module=Gdiplus; Emerald\Core\Gdiplus.bas
 Module=Bass; Emerald\Core\Bass.bas
@@ -61,3 +61,16 @@ Unattended=0
 Retained=0
 ThreadPerObject=0
 MaxNumberOfThreads=1
+
+[AmicForVB]
+XPSTYLE=0
+DLLOUT=0
+EXPORT=
+ASMCODE=0
+ENTRY=DllMain
+ICONFILE=
+BOOLICON=0
+SUBSYSTEM=0
+BOOLLOADER=0
+BOOLGC=0
+GCFILE=
