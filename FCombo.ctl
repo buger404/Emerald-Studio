@@ -1,13 +1,13 @@
 VERSION 5.00
 Begin VB.UserControl FCombo 
    AutoRedraw      =   -1  'True
-   ClientHeight    =   1992
+   ClientHeight    =   1995
    ClientLeft      =   0
    ClientTop       =   0
-   ClientWidth     =   6072
-   ScaleHeight     =   166
+   ClientWidth     =   6075
+   ScaleHeight     =   133
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   506
+   ScaleWidth      =   405
    Begin VB.Timer WOpen 
       Enabled         =   0   'False
       Interval        =   40
@@ -16,10 +16,10 @@ Begin VB.UserControl FCombo
    End
    Begin VB.ComboBox mCombo 
       BeginProperty Font 
-         Name            =   "Î¢ÈíÑÅºÚ Light"
-         Size            =   10.8
+         Name            =   "ËÎÌå"
+         Size            =   10.5
          Charset         =   134
-         Weight          =   290
+         Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
@@ -130,7 +130,7 @@ Public Property Let ForeColor(newColor As OLE_COLOR)
 End Property
 Private Sub UserControl_InitProperties()
     Set mFont = Ambient.Font
-    mFont.Size = 16
+    mFont.size = 16
     mBackColor = RGB(225, 225, 225)
     mForeColor = &H808080
     mFontColor = &H606060
@@ -184,8 +184,8 @@ End Sub
 Private Sub UserControl_Paint()
     Dim Graphics As Long, ButtonDeeph As Byte
     Dim Fontfam As Long, Strformat As Long, MyFont As Long, Rclayout As RECTF, RECT As RECTF
-    Dim mToken As Long, Inputbuf As GdiplusStartupInput
-    Inputbuf.GdiplusVersion = 1: GdiplusStartup mToken, Inputbuf
+    
+    Dim Pool As New GdipObjPool
     
     GdipCreateFromHDC UserControl.hdc, Graphics '»­²¼
     GdipSetSmoothingMode Graphics, SmoothingModeAntiAlias
@@ -205,23 +205,23 @@ Private Sub UserControl_Paint()
 
     If Not mFont Is Nothing Then
         GdipCreateFontFamilyFromName StrPtr(mFont.name), 0, Fontfam
-        GdipCreateFont Fontfam, mFont.Size, FontStyleRegular, UnitPoint, MyFont
+        GdipCreateFont Fontfam, mFont.size, FontStyleRegular, UnitPoint, MyFont
         GdipCreateStringFormat 0, 0, Strformat
         GdipSetStringFormatAlign Strformat, StringAlignmentNear
         GdipMeasureString Graphics, StrPtr(mCaption), Len(mCaption), MyFont, Rclayout, Strformat, RECT, 0, 0
         RECT.top = (Rclayout.Bottom - RECT.Bottom) / 2
         RECT.Right = UserControl.Width
-        GdipDrawString Graphics, StrPtr(mCaption), -1, MyFont, RECT, Strformat, NewBrush(OLEColorChange(mFontColor))
+        GdipDrawString Graphics, StrPtr(mCaption), -1, MyFont, RECT, Strformat, Pool.NewBrush(OLEColorChange(mFontColor))
     End If
       
     GdipFillRectangle Graphics, LineBrush, Rclayout.Right - 40, 0, 20, Rclayout.Bottom
-    GdipFillRectangle Graphics, NewBrush(OLEColorChange(mBackColor)), Rclayout.Right - 20, 0, 20, Rclayout.Bottom
+    GdipFillRectangle Graphics, Pool.NewBrush(OLEColorChange(mBackColor)), Rclayout.Right - 20, 0, 20, Rclayout.Bottom
     'GdipDrawRectangleI Graphics, DashPen, Rclayout.Left, Rclayout.top, Rclayout.Right - 1, Rclayout.Bottom - 1
     GdipDrawLine Graphics, DashPen, Rclayout.Right - 20, Rclayout.Bottom / 2 - 3, Rclayout.Right - 14, Rclayout.Bottom / 2 + 3
     GdipDrawLine Graphics, DashPen, Rclayout.Right - 14, Rclayout.Bottom / 2 + 3, Rclayout.Right - 8, Rclayout.Bottom / 2 - 3
 
     ButtonDeeph = 60
-    If mMouseIn Then GdipFillRectangleI Graphics, NewBrush(OLEColorChange(mForeColor, ButtonDeeph)), 0, 0, Rclayout.Right - 1, Rclayout.Bottom - 1
+    If mMouseIn Then GdipFillRectangleI Graphics, Pool.NewBrush(OLEColorChange(mForeColor, ButtonDeeph)), 0, 0, Rclayout.Right - 1, Rclayout.Bottom - 1
   
     UserControl.Refresh
     
@@ -232,7 +232,7 @@ Private Sub UserControl_Paint()
     GdipDeleteStringFormat Strformat
     GdipDeleteFont MyFont
     
-    GdiplusShutdown mToken
+    Pool.Dispose
 End Sub
 Private Sub UserControl_Resize()
     mCombo.Width = UserControl.Width \ Screen.TwipsPerPixelX
