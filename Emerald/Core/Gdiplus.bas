@@ -5163,11 +5163,7 @@ Public Declare Sub GdipFree Lib "gdiplus" (ByVal ptr As Long)
 '===================================================================================
 
 Public Declare Function GdiplusStartup _
-<<<<<<< HEAD
-               Lib "gdiplus" (token As Long, _
-=======
                Lib "gdiplus" (Token As Long, _
->>>>>>> a899395c6e9b15ba43456e240c04b1ddc1dd4d98
                               Inputbuf As GdiplusStartupInput, _
                               Optional ByVal outputbuf As Long = 0) As GpStatus
 Public Declare Function GdiplusShutdown Lib "gdiplus" (ByVal Token As Long) As GpStatus
