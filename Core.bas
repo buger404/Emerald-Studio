@@ -19,7 +19,7 @@ Attribute VB_Name = "Core"
         clicked As Boolean                          '该物件是否接受鼠标事件
         kind As Integer                             '类型
         Color As Long                               '使用颜色
-        pad As PictureBox                           '判定的显示器
+        pad As Object                               '绑定的显示器
     End Type
     
 '   设计窗口

@@ -1,6 +1,7 @@
 VERSION 5.00
 Begin VB.UserControl ResizeFrame 
    Appearance      =   0  'Flat
+   AutoRedraw      =   -1  'True
    BackColor       =   &H00DEE2DE&
    BackStyle       =   0  'Í¸Ã÷
    ClientHeight    =   1056
@@ -125,8 +126,16 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Event SizeChange()
 Event Done()
+Event Start()
 Public Kid As Object, Dad As Object
 Dim sx As Long, sy As Long, orr As RECT
+Public Sub ForceMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single, Mode As Integer)
+    If Mode = 0 Then
+        Call rp_MouseMove(Index, Button, Shift, X, Y)
+    Else
+        Call rp_MouseUp(Index, Button, Shift, X, Y)
+    End If
+End Sub
 
 Private Sub rp_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
     Call rp_MouseMove(Index, Button, Shift, X, Y)
@@ -151,7 +160,10 @@ Private Sub rp_MouseMove(Index As Integer, Button As Integer, Shift As Integer, 
     cr.Right = UserControl.Extender.Width
     cr.Bottom = UserControl.Extender.Height
     
-    If sx = -1 Then sx = X / Screen.TwipsPerPixelX: sy = Y / Screen.TwipsPerPixelY: orr = cr
+    If sx = -1 Then
+        sx = X / Screen.TwipsPerPixelX: sy = Y / Screen.TwipsPerPixelY: orr = cr
+        RaiseEvent Start
+    End If
     
     If Index = 4 Or Index = 0 Or Index = 3 Or Index = 6 Then cr.Left = p.X - sx - rp(Index).Left / Screen.TwipsPerPixelX
     If Index = 4 Or Index = 0 Or Index = 1 Or Index = 2 Then cr.top = p.Y - sy - rp(Index).top / Screen.TwipsPerPixelY

@@ -14,7 +14,7 @@ Public Type MState
 End Type
 Public ECore As GMan, EF As GFont
 Public GHwnd As Long, GDC As Long, GW As Long, GH As Long
-Public Mouse As MState, DrawF As Rect
+Public Mouse As MState, DrawF As RECT
 '========================================================
 '   Init
     Public Sub StartEmerald(hwnd As Long, w As Long, h As Long)
@@ -73,8 +73,8 @@ Public Mouse As MState, DrawF As Rect
         
         CreateCDC = dc
     End Function
-    Public Sub PaintDC(dc As Long, destDC As Long, Optional X As Long = 0, Optional Y As Long = 0, Optional cx As Long = 0, Optional cy As Long = 0, Optional alpha)
-        Dim b As BLENDFUNCTION, Index As Integer, cw As Long, ch As Long, bl As Long
+    Public Sub PaintDC(dc As Long, destDC As Long, Optional X As Long = 0, Optional Y As Long = 0, Optional cx As Long = 0, Optional cy As Long = 0, Optional cw, Optional ch, Optional alpha)
+        Dim b As BLENDFUNCTION, Index As Integer, bl As Long
         
         If Not IsMissing(alpha) Then
             If alpha < 0 Then alpha = 0
@@ -88,7 +88,8 @@ Public Mouse As MState, DrawF As Rect
             CopyMemory bl, b, 4
         End If
         
-        cw = GW - cx: ch = GH - cy
+        If IsMissing(cw) Then cw = GW - cx
+        If IsMissing(ch) Then ch = GH - cy
         
         If IsMissing(alpha) Then
             BitBlt destDC, X, Y, cw, ch, dc, cx, cy, vbSrcCopy

@@ -28,7 +28,7 @@ Begin VB.Form dsnWindow
       ScaleHeight     =   59
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   75
-      TabIndex        =   5
+      TabIndex        =   4
       Top             =   5016
       Visible         =   0   'False
       Width           =   900
@@ -42,7 +42,7 @@ Begin VB.Form dsnWindow
       Left            =   0
       ScaleHeight     =   768
       ScaleWidth      =   6204
-      TabIndex        =   2
+      TabIndex        =   1
       Top             =   0
       Width           =   6204
       Begin VB.Label title 
@@ -63,7 +63,7 @@ Begin VB.Form dsnWindow
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   360
-         TabIndex        =   3
+         TabIndex        =   2
          Top             =   240
          Width           =   570
       End
@@ -82,46 +82,41 @@ Begin VB.Form dsnWindow
          ForeColor       =   &H00CEDA1A&
          Height          =   765
          Left            =   0
-         TabIndex        =   4
+         TabIndex        =   3
          Tag             =   "window.highlight"
          Top             =   0
          Width           =   6210
       End
    End
-   Begin VB.PictureBox us 
-      Appearance      =   0  'Flat
-      AutoRedraw      =   -1  'True
-      BackColor       =   &H00F2F2F2&
-      BorderStyle     =   0  'None
-      Height          =   615
-      Index           =   0
-      Left            =   1080
-      ScaleHeight     =   51
-      ScaleMode       =   3  'Pixel
-      ScaleWidth      =   211
-      TabIndex        =   0
-      Top             =   4920
-      Visible         =   0   'False
-      Width           =   2535
-   End
    Begin Emerald_Studio.ResizeFrame rframe 
       Height          =   756
       Left            =   3456
-      TabIndex        =   1
+      TabIndex        =   0
       Top             =   1368
       Visible         =   0   'False
       Width           =   2508
       _ExtentX        =   6244
       _ExtentY        =   1545
    End
+   Begin Emerald_Studio.EDsnObject us 
+      Height          =   540
+      Index           =   0
+      Left            =   456
+      TabIndex        =   5
+      Top             =   2616
+      Visible         =   0   'False
+      Width           =   2700
+      _ExtentX        =   4763
+      _ExtentY        =   953
+   End
    Begin VB.Shape frames 
       BackColor       =   &H00F9F9F9&
       BorderColor     =   &H00CEDA1A&
-      Height          =   6252
-      Left            =   24
+      Height          =   876
+      Left            =   168
       Tag             =   "window.highlight"
-      Top             =   0
-      Width           =   6132
+      Top             =   1032
+      Width           =   1524
    End
    Begin VB.Shape prepareFrame 
       BackColor       =   &H00F8FAD8&
@@ -141,18 +136,19 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Declare Function PrintWindow Lib "user32" (ByVal SrcHwnd As Long, ByVal DesHDC As Long, ByVal uFlag As Long) As Long
-Dim nPage As String, nindex As Integer
+Dim nPage As String, nIndex As Integer
+Dim lLock As Boolean
 Dim sx As Long, sy As Long, ex As Long, ey As Long
 Public Property Get PageName() As String
     PageName = nPage
 End Property
 Public Property Let PageName(n As String)
     nPage = n: title.Caption = n
-    MainWindow.pagelist.List(nindex - 1) = n
+    MainWindow.pagelist.List(nIndex - 1) = n
 End Property
 
 Private Sub Form_Click()
-    rframe.Visible = False
+    'rframe.Visible = False
 End Sub
 
 Private Sub Form_Load()
@@ -160,52 +156,45 @@ Private Sub Form_Load()
     nPage = "Page1"
     UpdateSkin Me, CurrentSkin
     Me.Backcolor = RGB(255, 255, 255)
-    AddDsnWindow Me: nindex = UBound(DsnWin)
+    AddDsnWindow Me: nIndex = UBound(DsnWin)
     MainWindow.pagelist.AddItem nPage
     sx = -1
     ReDim objs(0)
 End Sub
 Public Sub UpdateUS(ByVal Index As Integer)
-    Dim g As Long, w As Long, h As Long
-    w = us(Index).Width: h = us(Index).Height
-    
-    us(Index).Visible = False
-    PrintWindow Me.hwnd, tempBox.hdc, vbSrcCopy
-    tempBox.Refresh
-    BitBlt us(Index).hdc, 0, 0, us(Index).Width, us(Index).Height, tempBox.hdc, us(Index).Left, us(Index).top, vbSrcCopy
-    us(Index).Refresh
-    
-    GdipCreateFromHDC us(Index).hdc, g
-    GdipSetSmoothingMode g, SmoothingModeAntiAlias
-
-    With DsnWin(nindex).Obj(Index)
-        Select Case .kind
-            Case 0
-                Dim i As Long
-                GdipCreateBitmapFromFile StrPtr(App.path & "\assets\bm_ok.png"), i
-                GdipDrawImageRect g, i, 0, 0, w, h
-                GdipDisposeImage i
-            Case 1
-                EF.Writes .Content, 0, 0, g, .Color, .size, w, h, .align, .style
-            Case 2
-                Dim b As Long
-                GdipCreateSolidFill .Color, b
-                If .Content = 0 Then
-                    GdipFillRectangle g, b, 0, 0, w, h
-                Else
-                    GdipFillEllipse g, b, 0, 0, w, h
-                End If
-                GdipDeleteBrush b
-        End Select
-    End With
-    
-    GdipDeleteGraphics g
-    
-    us(Index).Visible = True
-    us(Index).Refresh
+    If us(Index).lWin <> 0 Then us(Index).Refresh
 End Sub
+
+Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 0 Then Exit Sub
+    
+    If Not Droping Then
+        
+        If lLock = False Then
+            Dim i As Integer
+            For i = us.Count To 2 Step -1
+                With us.Item(i - 1)
+                    If X >= .Left And Y >= .top And X <= .Left + .Width And Y <= .top + .Height Then
+                        MainWindow.objCombo.ListIndex = .lObj - 1
+                        Call SetFocusIn(.Index)
+                        lLock = True
+                        rframe.ForceMove 4, Button, Shift, (X - rframe.Kid.Left - rframe.Kid.Width / 2 + 5) * Screen.TwipsPerPixelX, (Y - rframe.Kid.top - rframe.Kid.Height / 2 + 5) * Screen.TwipsPerPixelY, 0
+                        Exit Sub
+                    End If
+                End With
+            Next
+        End If
+        
+    End If
+End Sub
+
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If (Not Droping) Or (Button = 0) Then Exit Sub
+    If Button = 0 Then Exit Sub
+    
+    If Not Droping Then
+        If lLock Then rframe.ForceMove 4, Button, Shift, 0, 0, 0
+        Exit Sub
+    End If
     
     If sx = -1 Then
         sx = X: sy = Y: prepareFrame.Visible = True
@@ -228,6 +217,15 @@ Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y A
 End Sub
 
 Private Sub Form_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Not Droping Then
+        If Button = 0 Then Exit Sub
+        If lLock Then
+            rframe.ForceMove 4, Button, Shift, 0, 0, 1
+            lLock = False
+            Exit Sub
+        End If
+    End If
+
     If Droping Then
         Dim tsx As Long, tsy As Long, tex As Long, tey As Long
         If X < sx Then
@@ -243,15 +241,17 @@ Private Sub Form_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As 
         
         Load us(us.UBound + 1)
         With us(us.UBound)
+            .lWin = nIndex
+            .lObj = us.UBound
             .Move tsx, tsy, tex - tsx, tey - tsy
             .Visible = True
             .ZOrder
         End With
         
-        ReDim Preserve DsnWin(nindex).Obj(UBound(DsnWin(nindex).Obj) + 1)
-        With DsnWin(nindex).Obj(UBound(DsnWin(nindex).Obj))
+        ReDim Preserve DsnWin(nIndex).Obj(UBound(DsnWin(nIndex).Obj) + 1)
+        With DsnWin(nIndex).Obj(UBound(DsnWin(nIndex).Obj))
             .kind = DropI
-            .Color = argb(255, 27, 27, 27)
+            .Color = argb(MainWindow.pad_a, MainWindow.pad_r, MainWindow.pad_g, MainWindow.pad_b)
             .size = 16
             Select Case .kind
                 Case 0
@@ -263,8 +263,8 @@ Private Sub Form_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As 
             Set .pad = us(us.UBound)
         End With
         
-        If MainWindow.nPage = nindex Then
-            MainWindow.objCombo.AddItem "[Object " & UBound(DsnWin(nindex).Obj) & " ]"
+        If MainWindow.nPage = nIndex Then
+            MainWindow.objCombo.AddItem "[Object " & UBound(DsnWin(nIndex).Obj) & " ]"
             MainWindow.objCombo.ListIndex = MainWindow.objCombo.ListCount - 1
         End If
         
@@ -291,6 +291,7 @@ Private Sub Form_Resize()
 End Sub
 
 Private Sub rframe_Done()
+    us(rframe.Kid.Index).DrawLock = False
     UpdateUS rframe.Kid.Index
     '更新属性表
     MainWindow.protext(0).Content = us(rframe.Kid.Index).Left
@@ -299,7 +300,6 @@ Private Sub rframe_Done()
     MainWindow.protext(3).Content = us(rframe.Kid.Index).Height
 End Sub
 
-Private Sub us_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
-    MainWindow.objCombo.ListIndex = Index - 1
-    Call SetFocusIn(Index)
+Private Sub rframe_Start()
+    us(rframe.Kid.Index).DrawLock = True
 End Sub

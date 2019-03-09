@@ -28,6 +28,7 @@ UserControl=EEdit.ctl
 UserControl=Toggle.ctl
 UserControl=IconButton.ctl
 UserControl=ResizeFrame.ctl
+UserControl=EDsnObject.ctl
 IconForm="MainWindow"
 Startup="Sub Main"
 HelpFile=""

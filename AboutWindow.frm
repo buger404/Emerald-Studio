@@ -30,7 +30,7 @@ Begin VB.Form AboutWindow
       AutoSize        =   -1  'True
       BackColor       =   &H80000005&
       BackStyle       =   0  'Transparent
-      Caption         =   "扁平ComboBox - mady by 方程"
+      Caption         =   "扁平ComboBox + Toggle + IconButton - made by 方程"
       BeginProperty Font 
          Name            =   "微软雅黑"
          Size            =   9.6
@@ -46,7 +46,7 @@ Begin VB.Form AboutWindow
       TabIndex        =   11
       Tag             =   "text.content"
       Top             =   4392
-      Width           =   2820
+      Width           =   5004
    End
    Begin VB.Label Label11 
       Appearance      =   0  'Flat
@@ -99,7 +99,7 @@ Begin VB.Form AboutWindow
       AutoSize        =   -1  'True
       BackColor       =   &H80000005&
       BackStyle       =   0  'Transparent
-      Caption         =   "制作:                       Error 404"
+      Caption         =   "制作:                       Error 404 / 方程"
       BeginProperty Font 
          Name            =   "微软雅黑"
          Size            =   9.6
@@ -110,12 +110,12 @@ Begin VB.Form AboutWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808580&
-      Height          =   285
+      Height          =   252
       Left            =   480
       TabIndex        =   8
       Tag             =   "text.content"
       Top             =   2640
-      Width           =   2685
+      Width           =   3228
    End
    Begin VB.Label Label8 
       Appearance      =   0  'Flat
@@ -255,7 +255,7 @@ Begin VB.Form AboutWindow
       AutoSize        =   -1  'True
       BackColor       =   &H80000005&
       BackStyle       =   0  'Transparent
-      Caption         =   "QQ:                        1361778219"
+      Caption         =   "QQ:                        1361778219 (Error 404) / 937697555 (方程)"
       BeginProperty Font 
          Name            =   "微软雅黑"
          Size            =   9.6
@@ -266,19 +266,19 @@ Begin VB.Form AboutWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808580&
-      Height          =   285
+      Height          =   252
       Left            =   480
       TabIndex        =   2
       Tag             =   "text.content"
       Top             =   3000
-      Width           =   3015
+      Width           =   5628
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
       Appearance      =   0  'Flat
       BackColor       =   &H80000005&
       BackStyle       =   0  'Transparent
-      Caption         =   "Indev.302"
+      Caption         =   "Indev.309"
       BeginProperty Font 
          Name            =   "微软雅黑"
          Size            =   9.6
