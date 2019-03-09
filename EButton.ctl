@@ -86,33 +86,33 @@ End Property
 Public Property Get DefaultColor() As OLE_COLOR
     DefaultColor = ndec
 End Property
-Public Property Let DefaultColor(C As OLE_COLOR)
-    ndec = C
-    UserControl.Backcolor = C
+Public Property Let DefaultColor(c As OLE_COLOR)
+    ndec = c
+    UserControl.Backcolor = c
 End Property
 Public Property Get HoverColor() As OLE_COLOR
     HoverColor = nhoc
 End Property
-Public Property Let HoverColor(C As OLE_COLOR)
-    nhoc = C
+Public Property Let HoverColor(c As OLE_COLOR)
+    nhoc = c
 End Property
-Public Property Get Forecolor() As OLE_COLOR
-    Forecolor = con.Forecolor
+Public Property Get ForeColor() As OLE_COLOR
+    ForeColor = con.ForeColor
 End Property
-Public Property Let Forecolor(C As OLE_COLOR)
-    con.Forecolor = C
+Public Property Let ForeColor(c As OLE_COLOR)
+    con.ForeColor = c
 End Property
 Public Property Get Font() As StdFont
     Set Font = con.Font
 End Property
-Public Property Set Font(F As StdFont)
-    Set con.Font = F
+Public Property Set Font(f As StdFont)
+    Set con.Font = f
 End Property
 Public Property Get Content() As String
     Content = con.Caption
 End Property
-Public Property Let Content(C As String)
-    con.Caption = C
+Public Property Let Content(c As String)
+    con.Caption = c
     Call UserControl_Resize
 End Property
 
@@ -182,7 +182,7 @@ Private Sub UserControl_ReadProperties(PropBag As PropertyBag)
     ndec = PropBag.ReadProperty("DefaultColor", RGB(255, 255, 255))
     nhoc = PropBag.ReadProperty("HoverColor", RGB(242, 242, 242))
     na = PropBag.ReadProperty("Align", 0)
-    con.Forecolor = PropBag.ReadProperty("ForeColor", RGB(64, 64, 64))
+    con.ForeColor = PropBag.ReadProperty("ForeColor", RGB(64, 64, 64))
     Set con.Font = PropBag.ReadProperty("Font", con.Font)
     con.Caption = PropBag.ReadProperty("Content", "...")
     UserControl.Backcolor = ndec
@@ -191,7 +191,7 @@ End Sub
 Private Sub UserControl_WriteProperties(PropBag As PropertyBag)
     PropBag.WriteProperty "DefaultColor", ndec, RGB(255, 255, 255)
     PropBag.WriteProperty "HoverColor", nhoc, RGB(242, 242, 242)
-    PropBag.WriteProperty "ForeColor", con.Forecolor
+    PropBag.WriteProperty "ForeColor", con.ForeColor
     PropBag.WriteProperty "Font", con.Font
     PropBag.WriteProperty "Content", con.Caption
     PropBag.WriteProperty "Align", na

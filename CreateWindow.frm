@@ -8,7 +8,7 @@ Begin VB.Form CreateWindow
    ClientHeight    =   7356
    ClientLeft      =   48
    ClientTop       =   396
-   ClientWidth     =   10032
+   ClientWidth     =   9996
    ControlBox      =   0   'False
    Icon            =   "CreateWindow.frx":0000
    LinkTopic       =   "Form1"
@@ -16,7 +16,7 @@ Begin VB.Form CreateWindow
    MinButton       =   0   'False
    ScaleHeight     =   613
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   836
+   ScaleWidth      =   833
    StartUpPosition =   2  'ÆÁÄ»ÖÐÐÄ
    Begin Emerald_Studio.EButton pather 
       Height          =   255
@@ -314,14 +314,6 @@ Begin VB.Form CreateWindow
       Top             =   6240
       Width           =   390
    End
-   Begin VB.Line Line1 
-      BorderColor     =   &H00C0C0C0&
-      Tag             =   "line"
-      X1              =   30
-      X2              =   810
-      Y1              =   410
-      Y2              =   410
-   End
    Begin VB.Label proname 
       Appearance      =   0  'Flat
       AutoSize        =   -1  'True
@@ -351,8 +343,8 @@ Begin VB.Form CreateWindow
       Index           =   1
       Left            =   600
       Top             =   2760
-      Width           =   960
-      _ExtentX        =   1693
+      Width           =   948
+      _ExtentX        =   1672
       _ExtentY        =   1693
       Image           =   "CreateWindow.frx":000C
       Props           =   5
@@ -412,7 +404,7 @@ Begin VB.Form CreateWindow
       Width           =   960
       _ExtentX        =   1693
       _ExtentY        =   1693
-      Image           =   "CreateWindow.frx":0F59
+      Image           =   "CreateWindow.frx":06B7
       Props           =   5
    End
    Begin VB.Label tooldes 
@@ -478,12 +470,12 @@ Begin VB.Form CreateWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00CEDA1A&
-      Height          =   285
-      Left            =   360
+      Height          =   288
+      Left            =   384
       TabIndex        =   0
       Tag             =   "text.title"
-      Top             =   360
-      Width           =   2295
+      Top             =   384
+      Width           =   2292
    End
    Begin VB.Label toolfocus 
       Appearance      =   0  'Flat

@@ -111,13 +111,21 @@ Begin VB.Form MainWindow
          Tag             =   "combo:tool"
          Top             =   672
          Width           =   3060
-         _extentx        =   5398
-         _extenty        =   572
-         font            =   "MainWindow.frx":37300
-         backcolor       =   15790832
-         fontcolor       =   8421504
-         forecolor       =   8421504
-         caption         =   ""
+         _ExtentX        =   5398
+         _ExtentY        =   572
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "微软雅黑"
+            Size            =   10.2
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Backcolor       =   15790832
+         Forecolor       =   8421504
+         Fontcolor       =   8421504
+         Caption         =   ""
       End
       Begin Emerald_Studio.EEdit protext 
          Height          =   285
@@ -128,14 +136,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "元素的内容"
          Top             =   1584
          Width           =   1695
-         _extentx        =   0
-         _extenty        =   0
-         backcolor       =   15790832
-         content         =   "test"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BackColor       =   15790832
+         Content         =   "test"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit protext 
          Height          =   285
@@ -146,14 +154,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "元素的名称，可以为空"
          Top             =   1224
          Width           =   1716
-         _extentx        =   0
-         _extenty        =   0
-         backcolor       =   15790832
-         content         =   "test"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BackColor       =   15790832
+         Content         =   "test"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit protext 
          Height          =   285
@@ -164,14 +172,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "字体大小，只有在文字元素中有效"
          Top             =   4176
          Width           =   1935
-         _extentx        =   0
-         _extenty        =   0
-         backcolor       =   15790832
-         content         =   "16"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BackColor       =   15790832
+         Content         =   "16"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit protext 
          Height          =   285
@@ -182,14 +190,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "元素高度，在图形中禁用"
          Top             =   3288
          Width           =   1935
-         _extentx        =   0
-         _extenty        =   0
-         backcolor       =   15790832
-         content         =   "0"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BackColor       =   15790832
+         Content         =   "0"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit protext 
          Height          =   285
@@ -200,14 +208,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "元素宽度，在图形中禁用"
          Top             =   2928
          Width           =   1935
-         _extentx        =   0
-         _extenty        =   0
-         backcolor       =   15790832
-         content         =   "0"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BackColor       =   15790832
+         Content         =   "0"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit protext 
          Height          =   285
@@ -218,14 +226,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "Y坐标"
          Top             =   2568
          Width           =   1935
-         _extentx        =   0
-         _extenty        =   0
-         backcolor       =   15790832
-         content         =   "0"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BackColor       =   15790832
+         Content         =   "0"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit protext 
          Height          =   285
@@ -236,14 +244,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "X坐标"
          Top             =   2208
          Width           =   1935
-         _extentx        =   0
-         _extenty        =   0
-         backcolor       =   15790832
-         content         =   "0"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BackColor       =   15790832
+         Content         =   "0"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.FCombo stylebox 
          Height          =   324
@@ -253,13 +261,21 @@ Begin VB.Form MainWindow
          ToolTipText     =   "字体样式，只有在文字元素中有效"
          Top             =   3798
          Width           =   2076
-         _extentx        =   3662
-         _extenty        =   572
-         font            =   "MainWindow.frx":37328
-         backcolor       =   15790832
-         fontcolor       =   8421504
-         forecolor       =   8421504
-         caption         =   ""
+         _ExtentX        =   3662
+         _ExtentY        =   572
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "微软雅黑"
+            Size            =   10.2
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Backcolor       =   15790832
+         Forecolor       =   8421504
+         Fontcolor       =   8421504
+         Caption         =   ""
       End
       Begin VB.Label alignflag 
          Alignment       =   2  'Center
@@ -658,14 +674,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "颜色的Alpha值，需要控制在0~255之间。"
          Top             =   3120
          Width           =   516
-         _extentx        =   910
-         _extenty        =   529
-         backcolor       =   15790832
-         content         =   "242"
-         forecolor       =   8421504
-         bordercolor     =   13556506
-         alignment       =   2
-         lockinput       =   0   'False
+         _ExtentX        =   910
+         _ExtentY        =   529
+         BackColor       =   15790832
+         Content         =   "242"
+         ForeColor       =   8421504
+         BorderColor     =   13556506
+         Alignment       =   2
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit colortext 
          Height          =   375
@@ -676,14 +692,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "HEX颜色，你可以粘贴一个新的HEX颜色代码或复制它。"
          Top             =   4440
          Width           =   876
-         _extentx        =   0
-         _extenty        =   0
-         backcolor       =   15790832
-         content         =   "DEDEDE"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   2
-         lockinput       =   0   'False
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BackColor       =   15790832
+         Content         =   "DEDEDE"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   2
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit colortext 
          Height          =   300
@@ -694,14 +710,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "颜色的Blue值，需要控制在0~255之间。"
          Top             =   3960
          Width           =   1044
-         _extentx        =   1842
-         _extenty        =   529
-         backcolor       =   15790832
-         content         =   "242"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   1842
+         _ExtentY        =   529
+         BackColor       =   15790832
+         Content         =   "242"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit colortext 
          Height          =   300
@@ -712,14 +728,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "颜色的Green值，需要控制在0~255之间。"
          Top             =   3600
          Width           =   1020
-         _extentx        =   1799
-         _extenty        =   529
-         backcolor       =   15790832
-         content         =   "242"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   1799
+         _ExtentY        =   529
+         BackColor       =   15790832
+         Content         =   "242"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin Emerald_Studio.EEdit colortext 
          Height          =   300
@@ -730,14 +746,14 @@ Begin VB.Form MainWindow
          ToolTipText     =   "颜色的Red值，需要控制在0~255之间。"
          Top             =   3240
          Width           =   996
-         _extentx        =   1757
-         _extenty        =   529
-         backcolor       =   15790832
-         content         =   "242"
-         forecolor       =   9871510
-         bordercolor     =   13556506
-         alignment       =   0
-         lockinput       =   0   'False
+         _ExtentX        =   1757
+         _ExtentY        =   529
+         BackColor       =   15790832
+         Content         =   "242"
+         ForeColor       =   9871510
+         BorderColor     =   13556506
+         Alignment       =   0
+         LockInput       =   0   'False
       End
       Begin VB.PictureBox colorpad 
          Appearance      =   0  'Flat
@@ -827,14 +843,22 @@ Begin VB.Form MainWindow
          Tag             =   "button:tool"
          Top             =   4392
          Width           =   1092
-         _extentx        =   1926
-         _extenty        =   656
-         defaultcolor    =   15790832
-         hovercolor      =   15592941
-         align           =   0
-         forecolor       =   8421504
-         font            =   "MainWindow.frx":37350
-         content         =   "应用此颜色"
+         _ExtentX        =   1926
+         _ExtentY        =   656
+         DefaultColor    =   15790832
+         HoverColor      =   15592941
+         ForeColor       =   8421504
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "微软雅黑"
+            Size            =   9.6
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Content         =   "应用此颜色"
+         Align           =   0
       End
       Begin ImageX.aicAlphaImage dropper 
          Height          =   288
@@ -843,7 +867,7 @@ Begin VB.Form MainWindow
          Width           =   288
          _ExtentX        =   508
          _ExtentY        =   508
-         Image           =   "MainWindow.frx":37378
+         Image           =   "MainWindow.frx":37300
          Props           =   5
       End
       Begin VB.Label colormem 
@@ -1002,6 +1026,12 @@ Begin VB.Form MainWindow
       Tag             =   "window.tool"
       Top             =   0
       Width           =   3615
+      Begin VB.Timer colorfulTimer 
+         Enabled         =   0   'False
+         Interval        =   100
+         Left            =   3072
+         Top             =   2808
+      End
       Begin VB.Label exptitle 
          Appearance      =   0  'Flat
          AutoSize        =   -1  'True
@@ -1046,14 +1076,22 @@ Begin VB.Form MainWindow
          Tag             =   "button:tool"
          Top             =   600
          Width           =   3135
-         _extentx        =   5525
-         _extenty        =   868
-         defaultcolor    =   15790832
-         hovercolor      =   15592941
-         align           =   1
-         forecolor       =   9871510
-         font            =   "MainWindow.frx":37659
-         content         =   "图形元素"
+         _ExtentX        =   5525
+         _ExtentY        =   868
+         DefaultColor    =   15790832
+         HoverColor      =   15592941
+         ForeColor       =   9871510
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "微软雅黑"
+            Size            =   9.6
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Content         =   "图形元素"
+         Align           =   1
       End
       Begin Emerald_Studio.EButton toolitems 
          Height          =   495
@@ -1063,14 +1101,22 @@ Begin VB.Form MainWindow
          Tag             =   "button:tool"
          Top             =   1080
          Width           =   3135
-         _extentx        =   5525
-         _extenty        =   868
-         defaultcolor    =   15790832
-         hovercolor      =   15592941
-         align           =   1
-         forecolor       =   9871510
-         font            =   "MainWindow.frx":37681
-         content         =   "文字元素"
+         _ExtentX        =   5525
+         _ExtentY        =   868
+         DefaultColor    =   15790832
+         HoverColor      =   15592941
+         ForeColor       =   9871510
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "微软雅黑"
+            Size            =   9.6
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Content         =   "文字元素"
+         Align           =   1
       End
       Begin Emerald_Studio.EButton toolitems 
          Height          =   495
@@ -1080,14 +1126,22 @@ Begin VB.Form MainWindow
          Tag             =   "button:tool"
          Top             =   1560
          Width           =   3135
-         _extentx        =   5525
-         _extenty        =   868
-         defaultcolor    =   15790832
-         hovercolor      =   15592941
-         align           =   1
-         forecolor       =   9871510
-         font            =   "MainWindow.frx":376A9
-         content         =   "形状元素"
+         _ExtentX        =   5525
+         _ExtentY        =   868
+         DefaultColor    =   15790832
+         HoverColor      =   15592941
+         ForeColor       =   9871510
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "微软雅黑"
+            Size            =   9.6
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Content         =   "形状元素"
+         Align           =   1
       End
       Begin VB.Label tooltitle 
          Appearance      =   0  'Flat
@@ -1150,13 +1204,21 @@ Begin VB.Form MainWindow
             Tag             =   "combo:tool"
             Top             =   192
             Width           =   3108
-            _extentx        =   5482
-            _extenty        =   614
-            font            =   "MainWindow.frx":376D1
-            backcolor       =   15790832
-            fontcolor       =   8421504
-            forecolor       =   8421504
-            caption         =   ""
+            _ExtentX        =   5482
+            _ExtentY        =   614
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "微软雅黑"
+               Size            =   10.2
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Backcolor       =   15790832
+            Forecolor       =   8421504
+            Fontcolor       =   8421504
+            Caption         =   ""
          End
       End
       Begin VB.Frame dsnpane 
@@ -1309,10 +1371,12 @@ Public pad_a As Long, pad_r As Long, _
         pad_g As Long, pad_b As Long, _
         keyc As Boolean                     '调色板颜色（keyc：是否是因为用户的输入而改变颜色）
 Dim lTip As Object                      '当前的已提示的对象
+Dim lHitTime As Long
 Public nPage As Integer                 '当前的设计窗口
 '新的提示信息
 '<tips：提示内容,face:提示图像>
 Public Sub NewTip(ByVal tips As String, Optional face As String = "bm_ok.png")
+    If colorfulTimer.Enabled Then Exit Sub
     '更新黑嘴的提示内容
     bmFace.LoadImage_FromFile App.path & "\assets\" & face
     tiptext.Caption = tips
@@ -1350,11 +1414,38 @@ Private Sub applycolorbutton_Click()
 End Sub
 
 Private Sub bmFace_Click(ByVal Button As Integer)
-    NewTip "不要打我o(>﹏<)o", "bm_sad.png"
+    If colorfulTimer.Enabled Then Exit Sub
+    If GetTickCount - lHitTime <= 500 Then
+        tiptext.Caption = "不要打我o(>﹏<)o  " & Int(1000 / (GetTickCount - lHitTime)) & " combo！"
+    Else
+        NewTip "不要打我o(>﹏<)o", "bm_sad.png"
+    End If
+    If GetTickCount - lHitTime <= 100 Then
+        NewTip "打死你！！！！", "bm_angry.png"
+        colorfulTimer.Enabled = True
+    End If
+    lHitTime = GetTickCount
 End Sub
 Private Sub closecmd_Click()
     Unload Me
 End Sub
+
+Private Sub colorfulTimer_Timer()
+    On Error Resume Next
+    Randomize
+    Dim f As Form, o As Object
+    For Each f In Forms
+        f.Backcolor = RGB(Rnd * 255, Rnd * 255, Rnd * 255)
+        For Each o In f.Controls
+            o.Backcolor = RGB(Rnd * 255, Rnd * 255, Rnd * 255)
+            o.ForeColor = RGB(Rnd * 255, Rnd * 255, Rnd * 255)
+            o.Fontcolor = RGB(Rnd * 255, Rnd * 255, Rnd * 255)
+            o.DefaultColor = RGB(Rnd * 255, Rnd * 255, Rnd * 255)
+            o.HoverColor = RGB(Rnd * 255, Rnd * 255, Rnd * 255)
+        Next
+    Next
+End Sub
+
 Private Sub colorpad_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
     If Button = 1 Then
         Dim c(3) As Byte

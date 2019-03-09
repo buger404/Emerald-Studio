@@ -4,27 +4,27 @@ Begin VB.Form SetWindow
    BackColor       =   &H00FFFFFF&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Emerald Studio"
-   ClientHeight    =   8316
+   ClientHeight    =   6180
    ClientLeft      =   36
    ClientTop       =   396
-   ClientWidth     =   9924
+   ClientWidth     =   9876
    Icon            =   "SetWindow.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   693
+   ScaleHeight     =   515
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   827
+   ScaleWidth      =   823
    StartUpPosition =   2  '∆¡ƒª÷––ƒ
    Begin Emerald_Studio.EEdit Text4 
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   3120
       TabIndex        =   22
       Tag             =   "edit"
-      Top             =   7440
-      Width           =   6135
-      _ExtentX        =   0
-      _ExtentY        =   0
+      Top             =   5448
+      Width           =   2340
+      _ExtentX        =   4128
+      _ExtentY        =   508
       Content         =   "120"
       ForeColor       =   9871510
       BorderColor     =   13556506
@@ -32,14 +32,14 @@ Begin VB.Form SetWindow
       LockInput       =   0   'False
    End
    Begin Emerald_Studio.EEdit Text3 
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   3144
       TabIndex        =   20
       Tag             =   "edit"
-      Top             =   6720
-      Width           =   6135
-      _ExtentX        =   0
-      _ExtentY        =   0
+      Top             =   5136
+      Width           =   2292
+      _ExtentX        =   4043
+      _ExtentY        =   508
       Content         =   "10"
       ForeColor       =   9871510
       BorderColor     =   13556506
@@ -47,12 +47,12 @@ Begin VB.Form SetWindow
       LockInput       =   0   'False
    End
    Begin Emerald_Studio.EEdit Text2 
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   1728
       TabIndex        =   15
       Tag             =   "edit"
-      Top             =   4080
-      Width           =   6135
+      Top             =   2928
+      Width           =   6132
       _ExtentX        =   0
       _ExtentY        =   0
       Content         =   "Œ¥…Ë÷√"
@@ -62,12 +62,12 @@ Begin VB.Form SetWindow
       LockInput       =   0   'False
    End
    Begin Emerald_Studio.EEdit Text1 
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   1728
       TabIndex        =   12
       Tag             =   "edit"
-      Top             =   3360
-      Width           =   6135
+      Top             =   2568
+      Width           =   6132
       _ExtentX        =   0
       _ExtentY        =   0
       Content         =   "Œ¥…Ë÷√"
@@ -77,12 +77,12 @@ Begin VB.Form SetWindow
       LockInput       =   0   'False
    End
    Begin Emerald_Studio.EEdit pathtext 
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   1728
       TabIndex        =   4
       Tag             =   "edit"
-      Top             =   1680
-      Width           =   6135
+      Top             =   1464
+      Width           =   6132
       _ExtentX        =   0
       _ExtentY        =   0
       Content         =   "Œ¥…Ë÷√"
@@ -92,12 +92,12 @@ Begin VB.Form SetWindow
       LockInput       =   0   'False
    End
    Begin Emerald_Studio.EButton pather 
-      Height          =   255
-      Left            =   7800
+      Height          =   252
+      Left            =   8064
       TabIndex        =   3
       Tag             =   "button:default"
-      Top             =   1680
-      Width           =   375
+      Top             =   1512
+      Width           =   372
       _ExtentX        =   677
       _ExtentY        =   445
       DefaultColor    =   15592941
@@ -116,12 +116,12 @@ Begin VB.Form SetWindow
       Align           =   0
    End
    Begin Emerald_Studio.EButton EButton1 
-      Height          =   255
-      Left            =   7800
+      Height          =   252
+      Left            =   8088
       TabIndex        =   11
       Tag             =   "button:default"
-      Top             =   3360
-      Width           =   375
+      Top             =   2616
+      Width           =   372
       _ExtentX        =   677
       _ExtentY        =   445
       DefaultColor    =   15592941
@@ -140,12 +140,12 @@ Begin VB.Form SetWindow
       Align           =   0
    End
    Begin Emerald_Studio.EButton EButton2 
-      Height          =   255
-      Left            =   7800
+      Height          =   252
+      Left            =   8088
       TabIndex        =   14
       Tag             =   "button:default"
-      Top             =   4080
-      Width           =   375
+      Top             =   2976
+      Width           =   372
       _ExtentX        =   677
       _ExtentY        =   445
       DefaultColor    =   15592941
@@ -164,13 +164,13 @@ Begin VB.Form SetWindow
       Align           =   0
    End
    Begin Emerald_Studio.EButton EButton3 
-      Height          =   255
-      Left            =   8280
+      Height          =   252
+      Left            =   8616
       TabIndex        =   16
       Tag             =   "button:default"
-      Top             =   4080
-      Width           =   1335
-      _ExtentX        =   2350
+      Top             =   2976
+      Width           =   1068
+      _ExtentX        =   1884
       _ExtentY        =   445
       DefaultColor    =   15592941
       HoverColor      =   12632256
@@ -190,10 +190,10 @@ Begin VB.Form SetWindow
    Begin Emerald_Studio.ECheckBox forcheck 
       Height          =   228
       Index           =   0
-      Left            =   1560
+      Left            =   360
       TabIndex        =   26
       Tag             =   "switch"
-      Top             =   4632
+      Top             =   3744
       Width           =   3372
       _ExtentX        =   5948
       _ExtentY        =   402
@@ -215,10 +215,10 @@ Begin VB.Form SetWindow
    Begin Emerald_Studio.ECheckBox forcheck 
       Height          =   228
       Index           =   1
-      Left            =   1560
+      Left            =   360
       TabIndex        =   27
       Tag             =   "switch"
-      Top             =   4968
+      Top             =   4080
       Width           =   3948
       _ExtentX        =   6964
       _ExtentY        =   402
@@ -240,10 +240,10 @@ Begin VB.Form SetWindow
    Begin Emerald_Studio.ECheckBox forcheck 
       Height          =   228
       Index           =   2
-      Left            =   1560
+      Left            =   360
       TabIndex        =   28
       Tag             =   "switch"
-      Top             =   5328
+      Top             =   4416
       Width           =   3372
       _ExtentX        =   5948
       _ExtentY        =   402
@@ -279,35 +279,11 @@ Begin VB.Form SetWindow
       ForeColor       =   &H00FFFFFF&
       Height          =   288
       Index           =   3
-      Left            =   6264
+      Left            =   6288
       TabIndex        =   29
       Tag             =   "switch.off"
-      Top             =   2400
+      Top             =   1848
       Width           =   1320
-   End
-   Begin VB.Line Line4 
-      BorderColor     =   &H00C0C0C0&
-      Tag             =   "line"
-      X1              =   100
-      X2              =   100
-      Y1              =   520
-      Y2              =   650
-   End
-   Begin VB.Line Line3 
-      BorderColor     =   &H00C0C0C0&
-      Tag             =   "line"
-      X1              =   100
-      X2              =   100
-      Y1              =   380
-      Y2              =   510
-   End
-   Begin VB.Line Line2 
-      BorderColor     =   &H00C0C0C0&
-      Tag             =   "line"
-      X1              =   100
-      X2              =   100
-      Y1              =   240
-      Y2              =   370
    End
    Begin VB.Label datawarning 
       Alignment       =   2  'Center
@@ -324,12 +300,12 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808080&
-      Height          =   285
-      Left            =   0
+      Height          =   288
+      Left            =   -24
       TabIndex        =   25
-      Top             =   8040
+      Top             =   5904
       Visible         =   0   'False
-      Width           =   9930
+      Width           =   9936
    End
    Begin VB.Label switchpad 
       Alignment       =   2  'Center
@@ -393,12 +369,12 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   384
       TabIndex        =   21
       Tag             =   "text.title2"
-      Top             =   7080
-      Width           =   1170
+      Top             =   5472
+      Width           =   1176
    End
    Begin VB.Label Label9 
       Appearance      =   0  'Flat
@@ -416,12 +392,12 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   384
       TabIndex        =   19
       Tag             =   "text.title2"
-      Top             =   6360
-      Width           =   2730
+      Top             =   5136
+      Width           =   2736
    End
    Begin VB.Label Label8 
       Appearance      =   0  'Flat
@@ -438,13 +414,13 @@ Begin VB.Form SetWindow
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   480
+      ForeColor       =   &H00CEDB1A&
+      Height          =   288
+      Left            =   384
       TabIndex        =   18
-      Tag             =   "text.title2"
-      Top             =   6840
-      Width           =   390
+      Tag             =   "text.title"
+      Top             =   4800
+      Width           =   396
    End
    Begin VB.Label Label7 
       Appearance      =   0  'Flat
@@ -461,20 +437,20 @@ Begin VB.Form SetWindow
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   480
+      ForeColor       =   &H00CEDB1A&
+      Height          =   288
+      Left            =   360
       TabIndex        =   17
-      Tag             =   "text.title2"
-      Top             =   5160
-      Width           =   390
+      Tag             =   "text.title"
+      Top             =   3360
+      Width           =   396
    End
    Begin VB.Label Label6 
       Appearance      =   0  'Flat
       AutoSize        =   -1  'True
       BackColor       =   &H80000005&
       BackStyle       =   0  'Transparent
-      Caption         =   "Emerald SDK ¥¢¥ÊŒª÷√"
+      Caption         =   "SDK ¥¢¥ÊŒª÷√"
       BeginProperty Font 
          Name            =   "Œ¢»Ì—≈∫⁄"
          Size            =   9.6
@@ -485,19 +461,19 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   1560
+      Height          =   252
+      Left            =   360
       TabIndex        =   13
       Tag             =   "text.title2"
-      Top             =   3720
-      Width           =   2025
+      Top             =   2952
+      Width           =   1200
    End
    Begin VB.Label Label5 
       Appearance      =   0  'Flat
       AutoSize        =   -1  'True
       BackColor       =   &H80000005&
       BackStyle       =   0  'Transparent
-      Caption         =   "Visual Basic 6.0 IDE Œª÷√"
+      Caption         =   "VB6 IDE Œª÷√"
       BeginProperty Font 
          Name            =   "Œ¢»Ì—≈∫⁄"
          Size            =   9.6
@@ -508,12 +484,12 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   1560
+      Height          =   252
+      Left            =   360
       TabIndex        =   10
       Tag             =   "text.title2"
-      Top             =   3000
-      Width           =   2235
+      Top             =   2592
+      Width           =   1176
    End
    Begin VB.Label UIOption 
       Alignment       =   2  'Center
@@ -530,12 +506,12 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FFFFFF&
-      Height          =   285
+      Height          =   288
       Index           =   2
-      Left            =   4680
+      Left            =   4776
       TabIndex        =   9
       Tag             =   "switch.off"
-      Top             =   2400
+      Top             =   1848
       Width           =   1320
    End
    Begin VB.Label UIOption 
@@ -553,12 +529,12 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FFFFFF&
-      Height          =   285
+      Height          =   288
       Index           =   1
-      Left            =   3120
+      Left            =   3264
       TabIndex        =   8
       Tag             =   "switch.off"
-      Top             =   2400
+      Top             =   1848
       Width           =   1320
    End
    Begin VB.Label Label4 
@@ -576,13 +552,13 @@ Begin VB.Form SetWindow
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   480
+      ForeColor       =   &H00CEDB1A&
+      Height          =   288
+      Left            =   360
       TabIndex        =   7
-      Tag             =   "text.title2"
-      Top             =   3480
-      Width           =   390
+      Tag             =   "text.title"
+      Top             =   2280
+      Width           =   396
    End
    Begin VB.Label UIOption 
       Alignment       =   2  'Center
@@ -599,12 +575,12 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FFFFFF&
-      Height          =   285
+      Height          =   288
       Index           =   0
-      Left            =   1560
+      Left            =   1728
       TabIndex        =   6
       Tag             =   "switch.on"
-      Top             =   2400
+      Top             =   1848
       Width           =   1320
    End
    Begin VB.Label Label3 
@@ -623,11 +599,11 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   360
       TabIndex        =   5
       Tag             =   "text.title2"
-      Top             =   2040
+      Top             =   1848
       Width           =   600
    End
    Begin VB.Label Label2 
@@ -646,20 +622,12 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   1560
+      Height          =   288
+      Left            =   360
       TabIndex        =   2
       Tag             =   "text.title2"
-      Top             =   1320
-      Width           =   1170
-   End
-   Begin VB.Line Line1 
-      BorderColor     =   &H00C0C0C0&
-      Tag             =   "line"
-      X1              =   100
-      X2              =   100
-      Y1              =   100
-      Y2              =   230
+      Top             =   1464
+      Width           =   1176
    End
    Begin VB.Label Label1 
       Appearance      =   0  'Flat
@@ -676,13 +644,13 @@ Begin VB.Form SetWindow
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00808580&
-      Height          =   285
-      Left            =   480
+      ForeColor       =   &H00CEDB1A&
+      Height          =   288
+      Left            =   360
       TabIndex        =   1
-      Tag             =   "text.title2"
-      Top             =   1800
-      Width           =   390
+      Tag             =   "text.title"
+      Top             =   1104
+      Width           =   396
    End
    Begin VB.Label title 
       Appearance      =   0  'Flat
@@ -700,12 +668,21 @@ Begin VB.Form SetWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00CEDA1A&
-      Height          =   285
+      Height          =   288
       Left            =   360
       TabIndex        =   0
       Tag             =   "text.title"
-      Top             =   360
-      Width           =   390
+      Top             =   312
+      Width           =   396
+   End
+   Begin VB.Label background 
+      BackColor       =   &H00F0F2F0&
+      Height          =   924
+      Left            =   0
+      TabIndex        =   30
+      Tag             =   "window.tool"
+      Top             =   0
+      Width           =   9900
    End
 End
 Attribute VB_Name = "SetWindow"

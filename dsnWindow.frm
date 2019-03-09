@@ -291,7 +291,7 @@ Private Sub Form_Resize()
 End Sub
 
 Private Sub rframe_Done()
-    us(rframe.Kid.Index).DrawLock = False
+    'us(rframe.Kid.Index).DrawLock = False
     UpdateUS rframe.Kid.Index
     '更新属性表
     MainWindow.protext(0).Content = us(rframe.Kid.Index).Left
@@ -301,5 +301,5 @@ Private Sub rframe_Done()
 End Sub
 
 Private Sub rframe_Start()
-    us(rframe.Kid.Index).DrawLock = True
+    'us(rframe.Kid.Index).DrawLock = True
 End Sub

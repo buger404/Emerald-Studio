@@ -270,13 +270,11 @@ Private Sub cancelbtn_Click()
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
-    Unload MainWindow
+    End
 End Sub
 
 Private Sub okbtn_Click()
-    '下次不再弹出
-    Data.PutData "IndevWarn", 1
-    Me.Hide: ProjectWindow.Show
+    Me.Hide
 End Sub
 
 Private Sub regbtn_Click()

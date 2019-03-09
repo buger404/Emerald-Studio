@@ -64,10 +64,6 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub Waiter_Timer()
-    If Data.GetData("IndevWarn") = "" Then '如果还没警告用户，则警告
-        WarnWindow.Show
-    Else
-        ProjectWindow.Show
-    End If
+    ProjectWindow.Show
     Unload Me
 End Sub

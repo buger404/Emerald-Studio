@@ -48,6 +48,15 @@ Attribute VB_Name = "Core"
         Data.Create "Emerald Studio", "Emerald Studio"   '创建存档
         CurrentSkin = Val(Data.GetData("theme"))         '从存档中取得当前主题编号
     
+        '在任何窗口被加载之前弹出
+        If Data.GetData("IndevWarn") = "" Then           '如果还没警告用户，则警告
+            WarnWindow.Show
+            '卡主线程
+            Do While WarnWindow.Visible
+                Sleep 10: DoEvents                       '关爱CPU，从我做起
+            Loop
+        End If
+    
         '初始化Emerald
         StartEmerald MainWindow.hwnd, MainWindow.ScaleWidth, MainWindow.ScaleHeight
         '初始化字体
@@ -60,6 +69,8 @@ Attribute VB_Name = "Core"
             ProjectWindow.Left = SkinTest.Width
         #Else
             StartupWindow.Show                           '主窗口，我们走！
+            '下次不再弹出警告
+            If Data.GetData("IndevWarn") = "" Then Data.PutData "IndevWarn", 1
         #End If
         
     End Sub
