@@ -78,7 +78,7 @@ Public Property Let ForeColor(newColor As OLE_COLOR)
 End Property
 Private Sub UserControl_InitProperties()
     Set mFont = Ambient.Font
-    mFont.Size = 16
+    mFont.size = 16
     mBackColor = RGB(225, 225, 225)
     mForeColor = &H808080
 End Sub
@@ -128,8 +128,7 @@ Private Sub UserControl_Paint()
     Dim Graphics As Long, ButtonDeeph As Byte
     Dim Img As Long
     Dim Rclayout As RECTF, ImgRect As RECTF, ImgW As Long, ImgH As Long
-    Dim mToken As Long, Inputbuf As GdiplusStartupInput
-    Inputbuf.GdiplusVersion = 1: GdiplusStartup mToken, Inputbuf
+    Dim Pool As New GdipObjPool
     
     GdipCreateFromHDC UserControl.hdc, Graphics '画布
     GdipSetSmoothingMode Graphics, SmoothingModeAntiAlias
@@ -160,25 +159,19 @@ Private Sub UserControl_Paint()
     End If
     
     GdipFillRectangle Graphics, LineBrush, Rclayout.Right - 40, 0, 20, Rclayout.Bottom
-    
-    '************************************************************
-    '这里NewBrush会造成内存泄漏 特此标记 来日修复
-    'FCombo也需要修复
-    '************************************************************
-    
-    GdipFillRectangle Graphics, NewBrush(OLEColorChange(mBackColor)), Rclayout.Right - 20, 0, 20, Rclayout.Bottom
+    GdipFillRectangle Graphics, Pool.NewBrush(OLEColorChange(mBackColor)), Rclayout.Right - 20, 0, 20, Rclayout.Bottom
     GdipDrawImageRect Graphics, Img, ImgRect.Left, ImgRect.top, ImgRect.Right, ImgRect.Bottom
 
     ButtonDeeph = 60
-    If mMouseIn Or Selected Then GdipFillRectangleI Graphics, NewBrush(OLEColorChange(mForeColor, ButtonDeeph)), -1, -1, Rclayout.Right, Rclayout.Bottom
-    If mPress Then GdipFillRectangleI Graphics, NewBrush(OLEColorChange(mForeColor, ButtonDeeph)), -1, -1, Rclayout.Right - 1, Rclayout.Bottom - 1
+    If mMouseIn Or Selected Then GdipFillRectangleI Graphics, Pool.NewBrush(OLEColorChange(mForeColor, ButtonDeeph)), -1, -1, Rclayout.Right, Rclayout.Bottom
+    If mPress Then GdipFillRectangleI Graphics, Pool.NewBrush(OLEColorChange(mForeColor, ButtonDeeph)), -1, -1, Rclayout.Right - 1, Rclayout.Bottom - 1
     UserControl.Refresh
     
     GdipDeletePen DashPen
     GdipDeleteBrush LineBrush
     GdipDeleteGraphics Graphics
     GdipDisposeImage Img
-    GdiplusShutdown mToken
+    Pool.Dispose
 End Sub
 Private Sub UserControl_Resize()
     Call UserControl_Paint

@@ -5163,10 +5163,14 @@ Public Declare Sub GdipFree Lib "gdiplus" (ByVal ptr As Long)
 '===================================================================================
 
 Public Declare Function GdiplusStartup _
+<<<<<<< HEAD
                Lib "gdiplus" (token As Long, _
+=======
+               Lib "gdiplus" (Token As Long, _
+>>>>>>> a899395c6e9b15ba43456e240c04b1ddc1dd4d98
                               Inputbuf As GdiplusStartupInput, _
                               Optional ByVal outputbuf As Long = 0) As GpStatus
-Public Declare Function GdiplusShutdown Lib "gdiplus" (ByVal token As Long) As GpStatus
+Public Declare Function GdiplusShutdown Lib "gdiplus" (ByVal Token As Long) As GpStatus
 
 Public Type GdiplusStartupInput
     GdiplusVersion As Long
@@ -5396,24 +5400,23 @@ End Function
 
 Public Function InitGDIPlus(Optional OnErrorMsgbox, _
                             Optional ByVal OnErrorEnd As Boolean = True) As GpStatus
-
-    If mToken <> 0 Then
-        'Debug.Print "InitGDIPlus> GdiPlus已被初始化"
-        Exit Function
-    End If
+        If mToken <> 0 Then
+            'Debug.Print "InitGDIPlus> GdiPlus已被初始化"
+            Exit Function
+        End If
+        
+        Dim uInput As GdiplusStartupInput
+        Dim ret    As GpStatus
+        
+        uInput.GdiplusVersion = 1
+        ret = GdiplusStartup(mToken, uInput)
     
-    Dim uInput As GdiplusStartupInput
-    Dim ret    As GpStatus
-    
-    uInput.GdiplusVersion = 1
-    ret = GdiplusStartup(mToken, uInput)
-
-    If ret <> Ok Then
-        If Not IsMissing(OnErrorMsgbox) Then MsgBox OnErrorMsgbox
-        If OnErrorEnd Then MsgBox OnErrorMsgbox
-    End If
-    
-    InitGDIPlus = ret
+        If ret <> Ok Then
+            If Not IsMissing(OnErrorMsgbox) Then MsgBox OnErrorMsgbox
+            If OnErrorEnd Then MsgBox OnErrorMsgbox
+        End If
+        
+        InitGDIPlus = ret
 End Function
 
 Public Sub TerminateGDIPlus()
@@ -5428,11 +5431,11 @@ Public Sub TerminateGDIPlus()
     mToken = 0
 End Sub
 
-Public Function InitGDIPlusTo(ByRef token As Long, _
+Public Function InitGDIPlusTo(ByRef Token As Long, _
                               Optional OnErrorMsgbox, _
                               Optional ByVal OnErrorEnd As Boolean = True) As GpStatus
     
-    If token <> 0 Then
+    If Token <> 0 Then
         'Debug.Print "InitGDIPlusTo> GdiPlus已被初始化"
         Exit Function
     End If
@@ -5441,7 +5444,7 @@ Public Function InitGDIPlusTo(ByRef token As Long, _
     Dim ret As GpStatus
     
     uInput.GdiplusVersion = 1
-    ret = GdiplusStartup(token, uInput)
+    ret = GdiplusStartup(Token, uInput)
 
     If ret <> Ok Then
         If Not IsMissing(OnErrorMsgbox) Then MsgBox OnErrorMsgbox
@@ -5451,16 +5454,16 @@ Public Function InitGDIPlusTo(ByRef token As Long, _
     InitGDIPlusTo = ret
 End Function
 
-Public Sub TerminateGDIPlusFrom(ByVal token As Long)
-    If token = 0 Then
+Public Sub TerminateGDIPlusFrom(ByVal Token As Long)
+    If Token = 0 Then
         'Debug.Print "TerminateGDIPlusFrom> GdiPlus已被结束"
         Exit Sub
     End If
     
     DeleteObjects
-    GdiplusShutdown token
+    GdiplusShutdown Token
     
-    token = 0
+    Token = 0
 End Sub
 
 #If GdipVersion >= 1.1 Then
